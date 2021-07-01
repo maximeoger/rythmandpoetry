@@ -19,6 +19,7 @@ import AOS from 'aos'
 import '../../../node_modules/aos/dist/aos.css'
 
 class Global extends Component {
+  
   canvasConfig() {
     const app = new PIXI.Application({
       height: window.innerHeight,
@@ -43,6 +44,7 @@ class Global extends Component {
     app.stage.addChild(rect);
     this.animate(app, rect);
   }
+
   animate(el, shape) {
     requestAnimationFrame(() => this.animate(el, shape));
     el.renderer.resize(window.innerWidth, window.innerHeight);
@@ -51,6 +53,7 @@ class Global extends Component {
     shape.filters[0].seed = Math.random();
     el.render(el.stage);
   }
+
   componentDidMount() {
     this.canvasConfig();
     AOS.init({
@@ -58,8 +61,8 @@ class Global extends Component {
       duration: 1000
     })
     window.addEventListener('resize', () => AOS.refresh())
-
   }
+
   render() {
     const { match, context } = this.props;
     /*

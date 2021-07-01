@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: paartheepan/rapdb
+    image: maximeoger/rapdb
     container_name: rap_database
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PWD
@@ -10,8 +10,9 @@ services:
       - "${DB_PORT:-3306}:3306"
     networks:
       - db_network
+
   api:
-    image: paartheepan/rythmandpoetry_api:latest
+    image: maximeoger/rap-api
     container_name: rap_api
     environment:
       HOST: db
@@ -28,19 +29,20 @@ services:
       - api_network
     stdin_open: true
     tty: true
-  front:
-    image: paartheepan/rapfront:latest
-    container_name: rap_front
-    working_dir: /app
-    depends_on:
-      - api
-    restart: always
-    ports:
-      - "${FRONT_PORT:-80}:80"
-    environment:
-      REACT_APP_API_URL: http://localhost:$API_PORT
-    networks:
-      - api_network
+
+  # front:
+  #   image: paartheepan/rapfront:latest
+  #   container_name: rap_front
+  #   working_dir: /app
+  #   depends_on:
+  #     - api
+  #   restart: always
+  #   ports:
+  #     - "${FRONT_PORT:-80}:80"
+  #   environment:
+  #     REACT_APP_API_URL: http://localhost:$API_PORT
+  #   networks:
+  #     - api_network
 networks:
   db_network:
   api_network:

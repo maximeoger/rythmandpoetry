@@ -26,10 +26,6 @@ const ParallaxSection = () => {
           <FloatingText style={{ position: 'absolute', right: '5%', textAlign: 'right', top: "45%"}}>
             And New York is  <br /> viewed like a  <br /> paradise by all the american people
           </FloatingText>
-
-
-
-
           
           <FloatingText style={{ position: 'absolute', left: '5%', bottom: "10%"}}>But... at the other side of new york ...</FloatingText>
 

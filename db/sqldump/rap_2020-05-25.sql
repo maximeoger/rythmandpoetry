@@ -108,10 +108,10 @@ LOCK TABLES `musics` WRITE;
 
 INSERT INTO `musics` (`music_id`, `music_title`, `music_cover`, `music_src`, `music_artist_id`, `music_content`, `music_content_color`, `music_bgcolor`, `fk_section_id`)
 VALUES
-	(1,'DJ Kool Herc - Blue Jay Season','lol.jpg','https://rapapi.kevinmanssat.fr/musics/dj_koolherc_-_b-boy.mp3',0,'','','',0),
-	(2,'Johnny Guitar Watson - Telephone Bill','','https://rapapi.kevinmanssat.fr/musics/Johnny_Guitar_Watson_-_Telephone_Bill.mp3',0,'','','',0),
-	(3,'Grandmaster Flash & The Furious Five - The Message','','https://rapapi.kevinmanssat.fr/musics/Grandmaster_Flash_The_Furious_Five_-_The_Message.mp3',0,'','','',1),
-	(4,'Afrika Bambaataa & Soul Sonic Force - Looking For The Perfect Beat','','https://rapapi.kevinmanssat.fr/musics/Afrika_Bambaataa_Soul_Sonic_Force_-_Looking_For_The_Perfect_Beat.mp3',0,'','','',1);
+	(1,'DJ Kool Herc - Blue Jay Season','lol.jpg','https://rap.maximeoger.fr/invite/musics/dj_koolherc_-_b-boy.mp3',0,'','','',0),
+	(2,'Johnny Guitar Watson - Telephone Bill','','https://rap.maximeoger.fr/invite/musics/Johnny_Guitar_Watson_-_Telephone_Bill.mp3',0,'','','',0),
+	(3,'Grandmaster Flash & The Furious Five - The Message','','https://rap.maximeoger.fr/invite/musics/Grandmaster_Flash_The_Furious_Five_-_The_Message.mp3',0,'','','',1),
+	(4,'Afrika Bambaataa & Soul Sonic Force - Looking For The Perfect Beat','','https://rap.maximeoger.fr/invite/musics/Afrika_Bambaataa_Soul_Sonic_Force_-_Looking_For_The_Perfect_Beat.mp3',0,'','','',1);
 
 /*!40000 ALTER TABLE `musics` ENABLE KEYS */;
 UNLOCK TABLES;

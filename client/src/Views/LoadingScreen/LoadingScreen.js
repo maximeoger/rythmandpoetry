@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import HeadphoneSVG from '../../Components/HeadphoneSVG/HeadphoneSVG';
 import Logo from '../../Components/Logo/Logo';
 import Wrapper from '../../Components/StyledComponents/Wrapper';
+import Button from '../../Components/Button/Button';
 
 const Container = styled.div`
   max-width: 1440px;
@@ -36,28 +37,38 @@ const ProgressbarInner = styled.div`
 class LoadingScreen extends Component {
   state = {
     progress: 0,
-    loader: null
+    loader: null,
+    btnIsActive: false,
   };
+
   componentDidMount() {
     this.load();
   }
+
   componentDidUpdate() {
     if (this.state.progress > 100) {
       clearInterval(this.state.loader);
-      this.redirect();
     }
   }
+  
   load = () => {
     this.setState({
       loader: window.setInterval(() => {
-        this.setState((prevState) => ({ progress: prevState.progress + 3 }));
+        this.setState((prevState) => {
+          return ({ 
+            progress: prevState.progress + 3,
+            btnIsActive: prevState.progress >= 97
+          })
+        });
       }, 200)
     });
   };
+
   redirect = () => {
     const { history } = this.props;
     history.push('/g');
   };
+
   render() {
     return (
       <Wrapper>
@@ -72,16 +83,25 @@ class LoadingScreen extends Component {
             Take a headphone or at least turn the sound on, <br />
             to have the best experience !
           </Text>
-          <Spring
-            from={{ width: `0%` }}
-            to={{ width: `${this.state.progress}%` }}
-          >
-            {(props) => (
-              <Progressbar>
-                <ProgressbarInner style={props} />
-              </Progressbar>
-            )}
-          </Spring>
+          {
+            this.state.btnIsActive ? (
+              <div style={{ width: '100%', display: 'flex', justifyContent:'space-around' }}>
+                <Button onClick={this.redirect}>Let me in !</Button>
+              </div>
+            ) : (
+              <Spring
+                from={{ width: `0%` }}
+                to={{ width: `${this.state.progress}%` }}
+              >
+                {(props) => (
+                  <Progressbar>
+                    <ProgressbarInner style={props} />
+                  </Progressbar>
+                )}
+              </Spring>
+            ) 
+          }
+      
         </Container>
       </Wrapper>
     );
